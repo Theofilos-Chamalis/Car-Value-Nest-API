@@ -1,10 +1,10 @@
 {
   "name": "mycv",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "A Nest.js REST API used for estimating the value of used cars",
+  "author": "Theofilos Chamalis",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "ISC",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
