@@ -9,6 +9,7 @@ import {
   Post,
   Query,
   Session,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UsersService } from './users.service';
@@ -16,17 +17,20 @@ import { UpdateUserDto } from './dtos/update-user.dto';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { UserDto } from './dtos/user.dto';
 import { AuthService } from './auth.service';
+import { CurrentUser } from './decorators/current-user.decorator';
+import { User } from './user.entity';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Serialize(UserDto)
 @Controller('auth')
 export class UsersController {
   constructor(private usersService: UsersService, private authService: AuthService) {}
 
-  /** Find which user I am based on the id stored inside the encrypted cookie **/
+  /** Use the custom decorator (and in turns the current-user interceptor) to retrieve the current
+   *  user from within the session cookie and use it inside the controller **/
   @Get('/whoami')
-  whoAmI(@Session() session: any) {
-    const user = this.usersService.findOne(session.userId);
-    if (!user) throw new NotFoundException('User not found');
+  @UseGuards(AuthGuard)
+  whoAmI(@CurrentUser() user: User) {
     return user;
   }
 
