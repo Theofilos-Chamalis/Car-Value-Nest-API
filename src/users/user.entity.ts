@@ -13,6 +13,6 @@ export class User {
 
   @AfterInsert()
   logInsert() {
-    console.log(`Inserted User with id: ${this.id} in the database`);
+    console.log(`AfterInsert Hook -> Inserted User with id: ${this.id} in the database`);
   }
 }

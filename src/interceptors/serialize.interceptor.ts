@@ -22,6 +22,7 @@ export class SerializeInterceptor implements NestInterceptor {
     return handler.handle().pipe(
       map((data: any) => {
         /** Run something before a response is sent out **/
+        /** Remove any outgoing dto fields that do not have the @Expose() decorator **/
         return plainToClass(this.dto, data, {
           excludeExtraneousValues: true,
         });
