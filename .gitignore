@@ -37,5 +37,9 @@ lerna-debug.log*
 # DBs
 *.sqlite
 
+# .env files
+.env.development
+.env.test
+
 # TypeScript
 tsconfig.build.json
