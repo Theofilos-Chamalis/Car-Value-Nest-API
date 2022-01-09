@@ -42,7 +42,7 @@ export class AppModule {
     consumer
       .apply(
         cookieSession({
-          keys: ['randomEncryptionKey'],
+          keys: ['randomEncryptionKeylalala'],
         }),
       )
       .forRoutes('*');

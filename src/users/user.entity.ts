@@ -12,6 +12,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column({ default: true })
+  admin: boolean;
+
   /** The 2nd argument can be used to separate different User relationships on reports, e.g. report.approver vs report.owner**/
   @OneToMany(() => Report, report => report.user)
   reports: Report[];
