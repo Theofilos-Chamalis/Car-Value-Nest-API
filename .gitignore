@@ -40,6 +40,3 @@ lerna-debug.log*
 # .env files
 .env.development
 .env.test
-
-# TypeScript
-tsconfig.build.json
