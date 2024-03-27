@@ -50,7 +50,7 @@
     "@types/node": "^20.1.0",
     "@types/supertest": "^6.0.1",
     "@typescript-eslint/eslint-plugin": "^7.0.1",
-    "@typescript-eslint/parser": "^5.45.1",
+    "@typescript-eslint/parser": "^7.4.0",
     "eslint": "8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
